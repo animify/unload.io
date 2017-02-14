@@ -19,7 +19,6 @@ class NewPaste extends BaseComponent {
 	loadDuplicate(e) {
 		var contentData
 		(this.props.isDuplicate ? contentData = this.props.pasteContent : contentData = '')
-		console.log(contentData);
 		this.setState({code: contentData})
 		document.getElementById('editor').innerText = contentData
 		this.refs.editor.focus()

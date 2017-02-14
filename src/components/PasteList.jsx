@@ -25,11 +25,11 @@ class PasteList extends BaseComponent {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		this.setState({duplicate: false, currentID: nextProps.params.id})
+		this.setState({currentID: nextProps.params.id})
 	}
 
 	init() {
-		this.setState({duplicate: false, currentID: this.props.location.pathname})
+		this.setState({duplicate: false, currentID: this.props.params.id})
 	}
 
 	addPaste(paste) {
@@ -39,7 +39,7 @@ class PasteList extends BaseComponent {
 			type: 'POST',
 			data: JSON.stringify(paste),
 			success: function addPasteSuccess(data) {
-				this.context.router.push(`/${data._id}`)
+				this.context.router.push(`/${data._id}/`)
 			}.bind(this),
 			error: function addPasteError(xhr, status, err) {
 				console.error(this.props.url, status, err.toString())

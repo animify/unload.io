@@ -24,7 +24,6 @@ class DisplayRawPaste extends BaseComponent {
 			success: function loadDataSuccess(paste) {
 				if (paste == null) return this.context.router.push(`/`)
 				this.setState({code: paste.content, language: paste.language, ext: paste.ext})
-				console.log(paste.content);
 			}.bind(this)
 		})
 	}

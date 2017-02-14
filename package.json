@@ -6,7 +6,7 @@
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"dev": "webpack-dev-server --hot --inline --progress --colors --host 0.0.0.0 --port 4000",
-		"prod": "webpack --optimize-minimize --define process.env.NODE_ENV='production'",
+		"prod": "webpack -p --config webpack.prod.config.js --define process.env.NODE_ENV='production'",
 		"babel": "babel --presets es2015 webapp.js --out-file build/webapp.js --source-maps inline --watch",
 		"node": "node build/webapp.js"
 	},
@@ -26,6 +26,7 @@
 		"react-highlight": "^0.9.0",
 		"react-router": "^2.0.1",
 		"react-syntax-highlighter": "^5.0.0",
+		"serve-static": "^1.11.2",
 		"shortid": "^2.2.6"
 	},
 	"devDependencies": {

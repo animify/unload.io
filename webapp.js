@@ -1,6 +1,12 @@
 const url = 'mongodb://localhost:27017/unload'
 
+import path from 'path'
+import { Server } from 'http'
 import express from 'express'
+import React from 'react'
+import { renderToString } from 'react-dom/server'
+import { match, RouterContext } from 'react-router'
+
 import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
 import hljs from 'highlight.js'
@@ -32,8 +38,12 @@ const pasteModel = mongoose.model('paste', pasteSchema)
 
 const app = express()
 app.use(bodyParser.json())
+
 const root = `${__dirname}/public`
-app.use(express.static(root))
+
+app.use('/', express.static(root))
+app.use('/:id', express.static(root))
+
 
 app.get('/api/pastes', (req, res) => {
 	const filter = {}
@@ -82,21 +92,4 @@ app.post('/api/pastes', (req, res) => {
 	})
 })
 
-app.put('/api/pastes/:id', (req, res) => {
-	const id = new mongoose.mongo.ObjectId(req.params.id)
-	const paste = req.body
-	pasteModel.findOneAndUpdate({
-		_id: id,
-	}, paste, {
-		new: true,
-	}, (err, updatedPaste) => {
-		if (err) {
-			return console.error(err)
-		}
-		return res.json(updatedPaste)
-	})
-})
-
-app.listen(3000, () => {
-	console.log('App listening on port 3000!')
-})
+app.listen(80)
