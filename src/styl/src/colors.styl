@@ -1,0 +1,11 @@
+for clr in ('primary' 'red' 'orange' 'yellow' 'green' 'teal' 'blue' 'violet' 'purple' 'pink' 'brown' 'grey' 'black')
+	.text-{clr}
+		text-color(clr)
+
+for bc in ('red' 'orange' 'yellow' 'green' 'teal' 'blue' 'violet' 'purple' 'pink' 'brown' 'grey' 'black' 'primary' 'ash' 'smoke')
+	.{bc}:not(.button)
+		background-color lookup('color-' + bc) !important
+		&.light
+			background-color lookup('light-color-' + bc) !important
+		&.dark
+			background-color lookup('dark-color-' + bc) !important

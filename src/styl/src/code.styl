@@ -1,0 +1,81 @@
+.raw
+	background-color #fff
+	padding .5rem
+	line-height 1.6em
+	font-size .875rem
+	font-family font-family-code
+
+.code
+	color #b4c1d8
+	padding 1rem .5rem
+	font-family font-family-code
+	line-height 1.6em
+	font-size .875rem
+	width 100%
+	min-width 100%
+	min-height 100%
+	height 100%
+	margin-left 4rem
+	background-color code-background
+	fixed top left
+	overflow-y scroll
+	& > .editorLines
+		height 100%
+		width 2.5rem
+		absolute left top
+		text-align center
+		&:after
+			font-family 'Ionicons'
+			content '\f125'
+			relative top 1.04rem
+			font-size .8rem
+			color #3a465b
+	&::-webkit-scrollbar
+		width .7rem
+		background-color transparent
+	&::-webkit-scrollbar-thumb
+		background-color darken(code-background, 20%)
+		border-radius 10px
+	pre
+		tab-size 3
+	& > .editor
+		background-color transparent
+		outline 0
+		tab-size 3
+		border 0
+		resize none
+		min-height 100%
+		width 100%
+		color #b4c1d8
+		font-family font-family-code
+		font-size .875rem
+		padding-left 2rem
+	.react-syntax-highlighter-line-number
+		color #3a465b
+		user-select none
+	.hljs
+		&-function
+			.hljs-title
+				color #60bf9d
+			.hljs-params
+				color #da6c60
+		&-built_in
+			color #ffef78
+		&-keyword
+			color #c178ff
+		&-title, &-section
+			color #fea866
+		&-attr, &-number
+			color #5ac7d9
+		&-literal
+			color #d84ab2
+		&-string
+			color #da6c60
+
+p
+	code
+		margin 0 .3em
+
+.message
+	code
+		background-color rgba(0,0,0,.06)

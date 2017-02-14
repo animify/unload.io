@@ -1,0 +1,4 @@
+public/bundle.js
+*.log
+build/webapp.js
+node_modules

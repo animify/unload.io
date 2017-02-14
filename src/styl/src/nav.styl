@@ -1,0 +1,30 @@
+.sidebar
+	width 4rem
+	background-color darken(code-background, 20%)
+	height 100%
+	display block
+	overflow hidden
+	fixed top left
+	z-index 3000
+	ul
+		li
+			width 4rem
+			text-align center
+			padding 1.4rem 0
+			&.logo
+				padding 1.4rem 0 1.4rem 0
+				background-color darken(code-background, 40%)
+				pointer-events none
+				user-select none
+				img
+					width 2.2em
+			&.pull-down
+				absolute bottom
+			a
+				color #3a465b
+				font-size 1.7rem
+				transition color .14s ease
+				i
+					width 2rem
+				&:hover
+					color #b4c1d8
