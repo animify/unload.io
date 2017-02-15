@@ -9,5 +9,7 @@ The aim of Unload is to provide rapid fast code sharing facilites with auto-lang
 ## What's next?
 In upcoming versions of Unload, I'm looking to implement live collaboration on pastes of code. This will take some time to ensure that I keep my vision of making Unload as efficient as possible; which is also another factor I'm looking to improve on.
 
+Quick keybinds for main features are coming very soon.
+
 ## License
 Licensed under MIT - cindr.io
