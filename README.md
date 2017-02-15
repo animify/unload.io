@@ -1,4 +1,4 @@
-<img src="http://i.imgur.com/ksZorjw.png" height="80">
+<img src="http://i.imgur.com/ksZorjw.png" height="50">
 
 ## About Unload
 Unload is an open-source code sharing platform, built in Node JS with a React JS frontend.
