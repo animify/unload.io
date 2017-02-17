@@ -29,13 +29,17 @@ class NewPaste extends BaseComponent {
 		this.props.addPaste({content: this.refs.editor.innerText, status: 'new'})
 	}
 
+	onPaste(e) {
+		e.preventDefault()
+		document.execCommand('insertText', false, e.clipboardData.getData("text"))
+	}
+
 	render() {
 		const options = { lineNumbers: true }
-
 		return (
 			<div className="code">
 				<div className="editorLines"/>
-				<div id="editor" className="editor" contentEditable="true" ref="editor"/>
+				<div id="editor" className="editor" contentEditable="true" ref="editor" onPaste={this.onPaste} spellCheck="false"/>
 			</div>
 		)
 	}

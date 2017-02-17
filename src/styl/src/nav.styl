@@ -3,21 +3,38 @@
 	background-color darken(code-background, 20%)
 	height 100%
 	display block
-	overflow hidden
-	fixed top left
+	absolute top left
 	z-index 3000
 	ul
 		li
 			width 4rem
 			text-align center
 			padding 1.4rem 0
+			position relative
+			span
+				absolute left 4.6rem top .64em
+				font-size .825rem
+				background-color rgba(0, 0, 0, 40%)
+				border-radius 4px
+				padding 8px 14px
+				z-index 12000
+				min-width 7rem
+				white-space nowrap
+				text-align left
+				display none
+				b
+					display block
+					line-height 1.4em
+					color #FFF
+					font-weight 400
+					font-size .925rem
+				kbd
+					line-height 1.4em
+					color #DDE2EC
 			&.logo
-				padding 1.4rem 0 1.4rem 0
-				background-color darken(code-background, 40%)
-				pointer-events none
-				user-select none
+				padding 1.6rem 0 1rem 0
 				img
-					width 2.2em
+					width 2.1em
 			&.pull-down
 				absolute bottom
 			a
@@ -28,3 +45,12 @@
 					width 2rem
 				&:hover
 					color #b4c1d8
+					& + span
+						display block
+			&.disabled
+				a
+					user-select none
+					pointer-events none
+					cursor default !important
+					opacity .67
+					color #3a465b !important

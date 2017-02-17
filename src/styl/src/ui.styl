@@ -18,7 +18,7 @@ for h in (1..6)
 ::selection
 	color black
 	background-color lighten(primary-color, 80%)
-	
+
 a
 	color text-link
 	text-decoration none
@@ -36,8 +36,10 @@ strong
 	font-weight 700
 
 #main
-	min-height 100%
+	fixed top left
 	height 100%
+	width 100%
 	& > div
-		display block
 		height 100%
+		cf()
+		width 100%

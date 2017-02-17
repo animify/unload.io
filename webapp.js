@@ -92,4 +92,4 @@ app.post('/api/pastes', (req, res) => {
 	})
 })
 
-app.listen(80)
+process.env.NODE_ENV == 'production' ? app.listen(80) : app.listen(3000)

@@ -5,14 +5,23 @@ import BaseComponent from './common/BaseComponent'
 import NewPaste from './NewPaste'
 import NavBar from './NavBar'
 import DisplayPaste from './DisplayPaste'
+import {HotKeys} from 'react-hotkeys'
 
 const apiGetPasteUrl = '/api/pastes'
 const apiNewPasteUrl = '/api/pastes'
 
+const keyMap = {
+	'newPaste': ['command+q', 'ctrl+q'],
+	'savePaste': ['command+s', 'ctrl+s'],
+	'editPaste': ['command+e', 'ctrl+e'],
+	'rawPaste': ['command+shift+r', 'ctrl+shift+r']
+}
+
 class PasteList extends BaseComponent {
 	constructor() {
 		super()
-		this._bind('addPaste', 'handleSave', 'duplicate', 'passCode', 'newPaste', 'init')
+		this._bind('addPaste', 'handleSave', 'duplicate', 'passCode', 'newPaste', 'init', 'viewRaw')
+
 		this.state = {
 			passContent: null,
 			duplicate: false,
@@ -59,6 +68,11 @@ class PasteList extends BaseComponent {
 		this.context.router.push(`/`)
 	}
 
+	viewRaw() {
+		if (this.props.params.id === undefined) return
+		this.context.router.push(`/raw/${this.props.params.id}`)
+	}
+
 	duplicate() {
 		this.setState({duplicate: true})
 		this.context.router.push(`/`)
@@ -69,11 +83,34 @@ class PasteList extends BaseComponent {
 	}
 
 	render() {
+		const handlers = {
+			'savePaste': (event) => {
+				event.preventDefault()
+				console.log('saving paste')
+				this.handleSave()
+			},
+			'newPaste': (event) => {
+				event.preventDefault()
+				console.log('new paste')
+				this.newPaste()
+			},
+			'editPaste': (event) => {
+				event.preventDefault()
+				console.log('edit paste')
+				this.duplicate()
+			},
+			'rawPaste': (event) => {
+				event.preventDefault()
+				console.log('edit paste')
+				this.viewRaw()
+			}
+		}
+
 		return (
-			<div>
-				<NavBar displayType={this.props.route.display ? true : false} duplicate={this.duplicate} newPaste={this.newPaste} handleSave={this.handleSave}/>
+			<HotKeys keyMap={keyMap} tabIndex="0" handlers={handlers}>
+				<NavBar displayType={this.props.route.display ? true : false} duplicate={this.duplicate} newPaste={this.newPaste} handleSave={this.handleSave} paramID={this.state.currentID}/>
 				{this.props.route.display ? <DisplayPaste onPass={this.passCode} displayParam={this.state.currentID}/> : <NewPaste pasteContent={this.state.passContent} isDuplicate={this.state.duplicate} addPaste={this.addPaste} />}
-			</div>
+			</HotKeys>
 		)
 	}
 }

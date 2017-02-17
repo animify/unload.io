@@ -45,7 +45,6 @@ class DisplayPaste extends BaseComponent {
 			textAlign: 'right',
 			float: 'left'
 		}
-
 		return (
 			<div className="code">
 				<Highlight lineNumberContainerStyle={lineContainStyle} useInlineStyles={false} language={this.state.language} showLineNumbers={true}>

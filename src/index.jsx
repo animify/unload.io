@@ -13,6 +13,7 @@ import PasteList from './components/PasteList'
 import DisplayPaste from './components/DisplayPaste'
 import DisplayRawPaste from './components/DisplayRawPaste'
 import PageNotFound from './components/PageNotFound'
+import {HotKeys} from 'react-hotkeys'
 
 ReactDOM.render(
 	<Router history={browserHistory}>
