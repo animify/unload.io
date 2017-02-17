@@ -5,6 +5,7 @@ const jeet = require('jeet')
 const rupture = require('rupture')
 
 module.exports = {
+
 	entry: [
 		'webpack-dev-server/client?http://0.0.0.0:4000',
 		'webpack/hot/only-dev-server',

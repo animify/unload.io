@@ -5,7 +5,7 @@ const jeet = require('jeet')
 const rupture = require('rupture')
 
 module.exports = {
-	devtool: 'source-map',
+	devtool: 'hidden-source-map',
 
 	entry: [
 		'./src/index.jsx'
@@ -29,7 +29,7 @@ module.exports = {
 		}),
 		new webpack.optimize.UglifyJsPlugin({
 			minimize: true,
-			compressor: {
+			compress: {
 				warnings: false
 			}
 		})
@@ -42,7 +42,7 @@ module.exports = {
 	module: {
 		loaders: [{
 			test: /\.jsx$/,
-			loaders: ['react-hot', 'babel?presets[]=react,presets[]=es2015'],
+			loaders: ['babel?presets[]=react,presets[]=es2015'],
 			include: path.join(__dirname, 'src'),
 			exclude: /node_modules/,
 		}, {
