@@ -30,10 +30,9 @@ const pasteSchema = new mongoose.Schema({
 		'default': shortid.generate
 	},
 	content: String,
-	status: String,
 	language: String,
 	ext: String
-})
+}, {timestamps: true})
 const pasteModel = mongoose.model('paste', pasteSchema)
 
 const app = express()
@@ -43,6 +42,7 @@ const root = `${__dirname}/public`
 
 app.use('/', express.static(root))
 app.use('/:id', express.static(root))
+app.use('/raw/:id', express.static(root))
 
 
 app.get('/api/pastes', (req, res) => {

@@ -60,7 +60,7 @@ class PasteList extends BaseComponent {
 		if (this.props.route.display) return
 		const contentData = document.getElementById('editor').innerText
 		if (contentData == null || contentData === undefined || contentData == '') return
-		this.addPaste({content: contentData, status: 'new'})
+		this.addPaste({content: contentData})
 	}
 
 	newPaste() {
@@ -86,22 +86,22 @@ class PasteList extends BaseComponent {
 		const handlers = {
 			'savePaste': (event) => {
 				event.preventDefault()
-				console.log('saving paste')
+				console.debug('Paste: saving')
 				this.handleSave()
 			},
 			'newPaste': (event) => {
 				event.preventDefault()
-				console.log('new paste')
+				console.debug('Paste: new')
 				this.newPaste()
 			},
 			'editPaste': (event) => {
 				event.preventDefault()
-				console.log('edit paste')
+				console.debug('Paste: edit')
 				this.duplicate()
 			},
 			'rawPaste': (event) => {
 				event.preventDefault()
-				console.log('edit paste')
+				console.debug('Paste: raw')
 				this.viewRaw()
 			}
 		}

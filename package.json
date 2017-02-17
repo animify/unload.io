@@ -7,7 +7,7 @@
 		"pack:dev": "webpack-dev-server --hot --inline --progress --colors --host 0.0.0.0 --port 4000",
 		"pack:prod": "webpack -p --config webpack.prod.config.js --define process.env.NODE_ENV='production'",
 		"babel": "babel --presets es2015 webapp.js --out-file build/webapp.js --source-maps inline --watch",
-		"prod:node": "set NODE_ENV=production && node build/webapp.js",
+		"prod:node": "NODE_ENV=production node build/webapp.js",
 		"dev:node": "node build/webapp.js"
 	},
 	"author": "Stefan Mansson <mansson.io>",

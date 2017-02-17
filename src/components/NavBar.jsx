@@ -10,11 +10,6 @@ class NavBar extends BaseComponent {
 		this._bind('handleSubmit', 'duplicateEdit', 'newEdit')
 	}
 
-
-	componentDidMount() {
-console.log(this.props);
-	}
-
 	duplicateEdit() {
 		this.props.duplicate()
 	}
