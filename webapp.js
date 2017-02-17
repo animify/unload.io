@@ -47,12 +47,6 @@ app.use('/:id', express.static(root))
 
 app.get('/api/pastes', (req, res) => {
 	const filter = {}
-	if (req.query.priority) {
-		filter.priority = req.query.priority
-	}
-	if (req.query.status) {
-		filter.status = req.query.status
-	}
 
 	pasteModel.find(filter, (err, pastes) => {
 		if (err) {
@@ -64,12 +58,17 @@ app.get('/api/pastes', (req, res) => {
 
 app.get('/api/pastes/:id', (req, res) => {
 	const id = req.params.id
+	const pasteSplit = id.split('.')
 	pasteModel.findOne({
-		_id: id,
+		_id: pasteSplit[0],
 	}, (err, paste) => {
-		if (err) {
-			return console.error(err)
+		if (err) return console.error(err)
+		if (paste == null) return res.json(paste)
+
+		if (pasteSplit[1]) {
+			(hljs.getLanguage(pasteSplit[1]) !== undefined) ? paste.ext = pasteSplit[1] : paste.ext = paste.ext
 		}
+
 		return res.json(paste)
 	})
 })
@@ -77,7 +76,6 @@ app.get('/api/pastes/:id', (req, res) => {
 app.post('/api/pastes', (req, res) => {
 	const nel = hljs.highlightAuto(req.body.content).language
 	const paste = pasteModel(req.body)
-	paste.language = nel
 
 	if (hljs.getLanguage(nel).aliases)
 		paste.ext = hljs.getLanguage(nel).aliases[0]

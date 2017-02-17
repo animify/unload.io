@@ -47,7 +47,7 @@ class DisplayPaste extends BaseComponent {
 		}
 		return (
 			<div className="code">
-				<Highlight lineNumberContainerStyle={lineContainStyle} useInlineStyles={false} language={this.state.language} showLineNumbers={true}>
+				<Highlight lineNumberContainerStyle={lineContainStyle} useInlineStyles={false} language={this.state.ext} showLineNumbers={true}>
 					{this.state.code}
 				</Highlight>
 			</div>

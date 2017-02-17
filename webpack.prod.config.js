@@ -22,9 +22,6 @@ module.exports = {
 		new webpack.DefinePlugin({
 			"process.env": {
 				BROWSER: JSON.stringify(true)
-			},
-			"process.env": {
-				NODE_ENV: JSON.stringify('production')
 			}
 		}),
 		new webpack.optimize.UglifyJsPlugin({
@@ -69,16 +66,5 @@ module.exports = {
 
 	stylus: {
 		use: [nib(), jeet(), rupture()]
-	},
-
-	devServer: {
-		historyApiFallback: true,
-		contentBase: 'public/',
-		proxy: {
-			'/api/*': {
-				target: 'http://localhost:3000',
-				secure: false,
-			},
-		},
-	},
+	}
 };

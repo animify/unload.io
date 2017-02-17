@@ -64,8 +64,11 @@ module.exports = {
 	},
 
 	devServer: {
-		historyApiFallback: true,
 		contentBase: 'public/',
+		historyApiFallback: true,
+		historyApiFallback: {
+			disableDotRule: true
+		},
 		proxy: {
 			'/api/**': {
 				target: 'http://localhost:3000',

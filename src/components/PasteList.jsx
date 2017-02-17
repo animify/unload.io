@@ -48,7 +48,7 @@ class PasteList extends BaseComponent {
 			type: 'POST',
 			data: JSON.stringify(paste),
 			success: function addPasteSuccess(data) {
-				this.context.router.push(`/${data._id}/`)
+				this.context.router.push(`/${data._id}.${data.ext}`)
 			}.bind(this),
 			error: function addPasteError(xhr, status, err) {
 				console.error(this.props.url, status, err.toString())
