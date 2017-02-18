@@ -11,6 +11,7 @@ The aim of Unload is to provide rapid fast code sharing facilites with auto-lang
 * Collaborate in realtime on the same snippet
 * Live highlighting
 * Secure server with HTTPS
+* ~~Mobile friendly~~ ✔
 * ...
 
 ## Keybinds
