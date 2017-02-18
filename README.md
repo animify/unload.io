@@ -10,6 +10,7 @@ The aim of Unload is to provide rapid fast code sharing facilites with auto-lang
 * Tab spacing within editor
 * Collaborate in realtime on the same snippet
 * Live highlighting
+* Secure server with HTTPS
 * ...
 
 ## Keybinds
