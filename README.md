@@ -1,7 +1,7 @@
 <img src="http://i.imgur.com/4iYTy4j.png" height="70">
 
 ## About Unload
-Unload is an open-source code sharing platform, built in NodeJS with a ReactJS frontend.
+Unload is an open-source code sharing platform, built in ReactJS with a NodeJS backend API. Code snippets expire after 7 days of creation.
 
 ## Why did I build Unload?
 The aim of Unload is to provide rapid fast code sharing facilites with auto-language syntax detection for anyone looking to distribute code snippets.
