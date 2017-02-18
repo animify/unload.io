@@ -7,7 +7,7 @@
 
 .code
 	color #b4c1d8
-	padding 1rem .5rem
+	padding .8rem .5rem
 	font-family font-family-code
 	line-height 1.6em
 	font-size .875rem
@@ -15,10 +15,11 @@
 	min-width 100%
 	min-height 100%
 	height 100%
-	margin-left 4rem
+	padding-left 4.6rem
 	background-color code-background
 	fixed top left
-	overflow-y scroll
+	overflow-y auto
+	overflow-x auto
 	& > .editorLines
 		height 100%
 		width 2.5rem
@@ -30,14 +31,20 @@
 			relative top 1.04rem
 			font-size .8rem
 			color #3a465b
+	&::-webkit-scrollbar:horizontal
+		display none
 	&::-webkit-scrollbar
 		width .7rem
 		background-color transparent
 	&::-webkit-scrollbar-thumb
 		background-color darken(code-background, 20%)
 		border-radius 10px
+	&::-webkit-scrollbar-corner
+		display none
 	pre
 		tab-size 3
+		word-break: break-all
+
 	& > .editor
 		background-color transparent
 		outline 0
@@ -63,20 +70,28 @@
 				color #60bf9d
 			.hljs-params
 				color #da6c60
-		&-built_in
+		&-built_in, &-selector-id, &-number
 			color #78adff
 		&-keyword
 			color #bc90ff
-		&-title, &-section
+		&-title, &-section, &-selector-tag, &-selector-class
 			color #fea866
-		&-attr, &-number
+		&-attr
 			color #5ac7d9
+		&-attribute
+			color #10c7af
 		&-string
 			color #71d8a4
 		&-name
 			color #da6c60
 		&-literal
 			color #ff6fd9
+
+	+below('m')
+		padding-left .6rem
+		padding-top 4.6rem
+		& > .editorLines:after
+			top 4.6rem
 
 p
 	code
